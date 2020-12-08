@@ -157,16 +157,19 @@ colnames(X.te.full.both) <- colnames(X.tr.full.both)
 for (j in rownames(X.tr.full.both)){
   
   for (i in colnames(X.tr.full.both)){
-    #he a lover
-    if (row.means[j] > 4.5){
-      X.tr.full.both[j, i] <- 5
-    #he a hater
-    }else if ((row.means[j] < 1.5)){
-      X.tr.full.both[j, i] <- 1
-    #he is neither  
-    }else{
-      X.tr.full.both[j, i] <- col.means[i]
+    if (X.tr.full.both[j, i] == 0) {
+      #he a lover
+      if (row.means[j] > 4.5){
+        X.tr.full.both[j, i] <- 5
+      #he a hater
+      } else if (row.means[j] < 1.5){
+        X.tr.full.both[j, i] <- 1
+      #he is neither  
+      }else{
+        X.tr.full.both[j, i] <- col.means[i]
+      }
     }
+
     #we use strtoi because we need the integer part of j, which for some reason
     # is not trivial in this stupid language, which thinks "10000"<2931 is True
     #if (strtoi(j) < 2931){
