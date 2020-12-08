@@ -18,7 +18,7 @@ y.da.te = read.table (con)
 
 con = url("http://www.tau.ac.il/~saharon/StatsLearn2020/movie_titles.txt")
 titles = read.table(con,sep=",")
-names (X.tr) = substr(as.character(titles[,2]),1,10)
+names (X.tr) = substr(as.character(titles[,2]),1,50)
 
 
 
